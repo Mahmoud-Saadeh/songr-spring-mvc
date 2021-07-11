@@ -1,0 +1,38 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+background-color: whitesmoke;
+}
+
+h2{
+            width: 100%;
+            text-align: center;
+            background-color: cornflowerblue;
+            padding: 20px 0;
+            color: white;
+            margin-bottom: 30px;
+}
+.albums-list{
+    display:flex;
+    flex-wrap: wrap;
+}
+
+.albums-list ul{
+    width: 70%;
+    list-style:none;
+    flex-basis: 33.33%;
+}
+
+.albums-list ul li {
+    margin: 10px;
+}
+
+.image-album{
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
