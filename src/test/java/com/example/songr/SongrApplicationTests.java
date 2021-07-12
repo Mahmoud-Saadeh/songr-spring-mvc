@@ -12,7 +12,7 @@ class SongrApplicationTests {
 
 	@BeforeEach
 	void setup(){
-		album = new Album("Song1","Artist1", 2,120, "https://cdn.pixabay.com/photo/2017/08/02/05/49/recording-2570056__340.jpg");
+//		album = new Album("Song1","Artist1", 2,120, "https://cdn.pixabay.com/photo/2017/08/02/05/49/recording-2570056__340.jpg");
 	}
 
 	@Test

@@ -3,11 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Songr</title>
-    <link rel="stylesheet" href="/styles/index.css" th:href="@{/styles/index.css}" />
+    <link rel="stylesheet" href="./styles/index.css" th:href="@{/styles/index.css}" />
+    <link rel="stylesheet" href="./styles/albums.css" th:href="@{/styles/albums.css}" />
 </head>
 <body>
+<nav>
+    <h2>Songr</h2>
+    <ul>
+        <li>
+            <a href="/">Home</a>
+        </li>
+        <li>
+            <a href="/hello">Greeting</a>
+        </li>
+
+        <li>
+            <a href="/capitalize/hello">Capitals</a>
+        </li>
+        <li>
+            <a href="/albums">Albums</a>
+        </li>
+    </ul>
+</nav>
     <main>
-      <h1>Songr</h1>
+<!--      <h1>Songr</h1>-->
       <ul>
         <li>
             <a href="/hello">Greeting</a>
@@ -20,7 +39,7 @@
         </li>
           <li>
               <a href="/albums">Albums</a>
-              <p>See A list of Albums</p>
+              <p>See A list of Albums and add a new ones</p>
           </li>
       </ul>
     </main>
