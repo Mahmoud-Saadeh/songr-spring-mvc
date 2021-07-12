@@ -29,18 +29,18 @@ public class AlbumRoutes {
 
         return "albums";
     }
-    @PostMapping("/albums")
-    public String postAlbum(@ModelAttribute Album album, Model model){
-        albumRepository.save(album);
-
-        List<Album> albums = albumRepository.findAll();
-        model.addAttribute("albumClass", new Album());
-        model.addAttribute("albums",albums);
-
-        System.out.println("albums.size() PostMapping   "+albums.size());
-//        System.out.println("albums.size() PostMapping   "+albums.get(0));
-//        System.out.println("the greeting is >>> " + album.getContent());
-//        model.addAttribute("album", album);
-        return "redirect:/albums";
-    }
+//    @PostMapping("/albums")
+//    public String postAlbum(@ModelAttribute Album album, Model model){
+//        albumRepository.save(album);
+//
+//        List<Album> albums = albumRepository.findAll();
+//        model.addAttribute("albumClass", new Album());
+//        model.addAttribute("albums",albums);
+//
+//        System.out.println("albums.size() PostMapping   "+albums.size());
+////        System.out.println("albums.size() PostMapping   "+albums.get(0));
+////        System.out.println("the greeting is >>> " + album.getContent());
+////        model.addAttribute("album", album);
+//        return "redirect:/albums";
+//    }
 }
