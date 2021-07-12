@@ -7,15 +7,82 @@
 
 </head>
 <body>
-    <h2>Albums List</h2>
-    <div class="albums-list">
-        <ul th:each="album : ${albums}">
-            <li th:text="'Title: ' + ${album.title}"></li>
-            <li th:text="'Artist: ' + ${album.artist}"></li>
-            <li th:text="'Song Count: ' + ${album.songCount}"></li>
-            <li th:text="'Length: ' + ${album.length} + ' s'"></li>
-            <img th:src="${album.imageUrl}" class="image-album"/>
-        </ul>
+<nav>
+    <h2>Songr</h2>
+    <ul>
+        <li>
+            <a href="/">Home</a>
+        </li>
+        <li>
+            <a href="/hello">Greeting</a>
+        </li>
+
+        <li>
+            <a href="/capitalize/hello">Capitals</a>
+        </li>
+        <li>
+            <a href="/albums">Albums</a>
+        </li>
+    </ul>
+</nav>
+
+    <div>
+        <h3>New Album Form</h3>
+        <form action="#" th:action="@{/albums}" th:object="${albumClass}" method="post">
+            <div>
+                <span>
+                    <label for="title">Title: </label>
+                    <input type="text" id="title" th:field="*{title}" required/>
+                </span>
+                <span>
+                    <label for="artist">Artist: </label>
+                    <input type="text" id="artist" th:field="*{artist}" required/>
+                </span>
+            </div>
+            <div>
+                <span>
+                    <label for="songCount">Song Count: </label>
+                    <input type="number" id="songCount" th:field="*{songCount}" required/>
+                </span>
+                <span>
+                    <label for="length">Length: </label>
+                    <input type="number" id="length" th:field="*{length}" required/>
+                </span>
+            </div>
+            <div>
+                <span>
+                    <label for="imageUrl">Image Url: </label>
+                    <input type="text" id="imageUrl" th:field="*{imageUrl}" required/>
+                </span>
+                <span>
+                    <input type="submit" value="Add Album" />
+                </span>
+                <span>
+                    <input type="reset" value="Clear Input" />
+                </span>
+            </div>
+        </form>
+    </div>
+    <div >
+        <div th:if="${albumsSize > 0}" class="albums-list">
+            <div th:each="album : ${albums}" class="album-item">
+                <img th:src="${album.imageUrl}" class="image-album"/>
+                <div class="album-text">
+                <div>
+                    <span th:text="'Title: ' + ${album.title}"></span>
+                    <span th:text="'Artist: ' + ${album.artist}"></span>
+                </div>
+                <div>
+                    <span th:text="'Song Count: ' + ${album.songCount}"></span>
+                    <span th:text="'Length: ' + ${album.length} + ' s'"></span>
+                </div>
+                </div>
+
+            </div>
+        </div>
+        <div th:unless="${albumsSize > 0}" class="albums-list-empty">
+            <p>The Studio is empty for now you can add a new album from above</p>
+        </div>
     </div>
 
 </body>

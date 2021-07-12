@@ -3,8 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Hello World</title>
+    <link rel="stylesheet" href="../static/styles/albums.css" th:href="@{/styles/albums.css}" />
 </head>
 <body>
+<nav>
+    <h2>Songr</h2>
+    <ul>
+        <li>
+            <a href="/">Home</a>
+        </li>
+        <li>
+            <a href="/hello">Greeting</a>
+        </li>
+
+        <li>
+            <a href="/capitalize/hello">Capitals</a>
+        </li>
+        <li>
+            <a href="/albums">Albums</a>
+        </li>
+    </ul>
+</nav>
     <h1>Hello World!</h1>
     <p>Welcome to my first Spring website</p>
 </body>

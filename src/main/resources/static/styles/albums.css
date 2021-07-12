@@ -1,38 +1,132 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-background-color: whitesmoke;
+body {
+    background-color: whitesmoke;
 }
 
-h2{
-            width: 100%;
-            text-align: center;
-            background-color: cornflowerblue;
-            padding: 20px 0;
-            color: white;
-            margin-bottom: 30px;
+/*h2 {*/
+/*    width: 100%;*/
+/*    text-align: center;*/
+/*    background-color: cornflowerblue;*/
+/*    padding: 20px 0;*/
+/*    color: white;*/
+/*    margin-bottom: 30px;*/
+/*}*/
+nav{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 80px;
+    background-color: cornflowerblue;
+    align-items: center;
+    height: 65px;
+    color: white;
+    margin-bottom: 30px;
 }
-.albums-list{
-    display:flex;
+nav ul{
+    display: flex;
+    list-style: none;
+    font-size: 18px;
+}
+nav ul li{
+    margin: 0 20px;
+}
+nav ul li a{
+    text-decoration: none;
+    color: white;
+}
+.albums-list {
+    display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
-.albums-list ul{
+.albums-list .album-item {
     width: 70%;
-    list-style:none;
-    flex-basis: 33.33%;
+    flex-basis: 26%;
+    margin: auto;
+    margin-bottom: 40px;
 }
-
-.albums-list ul li {
-    margin: 10px;
+.albums-list .album-item .album-text{
+    display: flex;
+    justify-content: space-around;
 }
-
-.image-album{
+.albums-list .album-item .album-text div {
+    /*margin: 10px;*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.albums-list .album-item .album-text div span {
+    margin: 10px 0px;
+}
+.image-album {
     width: 100%;
     height: 400px;
     object-fit: cover;
+}
+
+.albums-list-empty{
+    text-align: center;
+    margin: 40px 10px;
+    font-size: 25px;
+}
+h3{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+}
+form div{
+    margin: 20px 0;
+}
+form div span{
+    margin: 0 20px;
+}
+label{
+    display: inline-block;
+    width: 112px;
+    font-size: 20px;
+}
+
+input[type="text"], input[type="number"]{
+    font-size: 18px;
+    height: 30px;
+    width: 300px;
+}
+input[type="submit"]{
+    font-size: 16px;
+    height: 30px;
+    width: 100px;
+    background-color: blueviolet;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+input[type="reset"]{
+    font-size: 16px;
+    height: 30px;
+    width: 100px;
+    background-color: transparent;
+    border: 1px solid blueviolet;
+    color: blueviolet;
+    cursor: pointer;
+    margin-left: -30px;
+    transition: all 0.5s ease;
+}
+
+input[type="reset"]:hover{
+    background-color: blueviolet;
+    border: none;
+    color: white;
+    margin-left: -30px;
 }
