@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Album Songs</title>
+    <link rel="stylesheet" href="../static/styles/header.css" th:href="@{/styles/header.css}"/>
+    <link rel="stylesheet" href="../static/styles/songs.css" th:href="@{/styles/songs.css}"/>
+    <link rel="stylesheet" href="../static/styles/albumSongs.css" th:href="@{/styles/albumSongs.css}"/>
+
+</head>
+<body>
+<nav>
+    <h2>Songr</h2>
+    <ul>
+        <li>
+            <a href="/">Home</a>
+        </li>
+        <li>
+            <a href="/hello">Greeting</a>
+        </li>
+
+        <li>
+            <a href="/capitalize/hello">Capitals</a>
+        </li>
+        <li>
+            <a href="/albums">Albums</a>
+        </li>
+        <li>
+            <a href="/songs">Songs</a>
+        </li>
+    </ul>
+</nav>
+<div class="album-songs-top">
+    <div class="album-data">
+        <img th:src="${album.getImageUrl()}" class="image-album"/>
+        <div class="album-text">
+                <p th:text="'Title: ' + ${album.getTitle()}"></p>
+                <p th:text="'Artist: ' + ${album.getArtist()}"></p>
+                <p th:text="'Song Count: ' + ${album.getSongCount()}"></p>
+                <p th:text="'Length: ' + ${album.getLength()} + ' s'"></p>
+        </div>
+    </div>
+    <div class="form">
+        <h3>New Song Form</h3>
+        <form action="#" th:action="@{'/album/' + ${album.getId()}}" th:object="${songsClass}" method="post">
+            <div>
+                <label for="title">Title: </label>
+                <input type="text" id="title" th:field="*{title}" required/>
+            </div>
+            <div>
+                <label for="length">Length: </label>
+                <input type="number" id="length" th:field="*{length}" required min="0"/>
+            </div>
+            <div>
+                <label for="trackNumber">Track Number: </label>
+                <input type="number" id="trackNumber" th:field="*{trackNumber}" required min="0"/>
+            </div>
+            <div>
+                <input type="submit" value="Submit">
+            </div>
+        </form>
+    </div>
+</div>
+
+<table>
+    <thead>
+    <tr>
+        <th>Image</th>
+        <th> Title</th>
+        <th> Album</th>
+        <th> Length</th>
+        <th> Track Number</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${songs.size() <= 0}">
+        <td colspan="5">There are no songs here, You can add new songs by going inside an album and fill the form</td>
+    </tr>
+    <tr th:each="song : ${songs}">
+        <td><img th:src="${song.getAlbum().imageUrl}"></td>
+        <td><span th:text="${song.title}"> Title </span></td>
+        <td><span th:text="${song.getAlbum().title}"> Album </span></td>
+        <td><span th:text="${song.length}"> Length </span></td>
+        <td><span th:text="${song.trackNumber}"> Track Number </span></td>
+    </tr>
+
+    </tbody>
+</table>
+</body>
+</html>

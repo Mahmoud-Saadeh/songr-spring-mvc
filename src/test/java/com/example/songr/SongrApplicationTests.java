@@ -1,6 +1,8 @@
 package com.example.songr;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+
+import com.example.songr.domain.Album;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
