@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Songs</title>
+    <link rel="stylesheet" href="../static/styles/header.css" th:href="@{/styles/header.css}"/>
+    <link rel="stylesheet" href="../static/styles/songs.css" th:href="@{/styles/songs.css}"/>
+</head>
+<body>
+<nav>
+    <h2>Songr</h2>
+    <ul>
+        <li>
+            <a href="/">Home</a>
+        </li>
+        <li>
+            <a href="/hello">Greeting</a>
+        </li>
+
+        <li>
+            <a href="/capitalize/hello">Capitals</a>
+        </li>
+        <li>
+            <a href="/albums">Albums</a>
+        </li>
+        <li>
+            <a href="/songs">Songs</a>
+        </li>
+    </ul>
+</nav>
+<!--<div>-->
+<!--    <div th:if="${songsSize > 0}" class="albums-list">-->
+<!--        <div th:each="song : ${songs}" class="album-item">-->
+<!--            <div class="song-text">-->
+<!--                <div>-->
+<!--                    <span th:text="'Title: ' + ${song.title}"></span>-->
+<!--                    <span th:text="'Length: ' + ${song.length} + ' s'"></span>-->
+<!--                </div>-->
+<!--                <div>-->
+<!--                    <span th:text="'Track Number: ' + ${song.trackNumber}"></span>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div th:unless="${songsSize > 0}" class="albums-list-empty">-->
+<!--        <p>There are no songs here, You can add new songs from here</p>-->
+<!--    </div>-->
+<!--</div>-->
+<table>
+    <thead>
+    <tr>
+        <th>Image</th>
+        <th> Title</th>
+        <th> Album</th>
+        <th> Length</th>
+        <th> Track Number</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${songsSize <= 0}">
+        <td colspan="5">There are no songs here, You can add new songs by going inside an album and fill the form</td>
+    </tr>
+    <tr th:each="song : ${songs}">
+        <td><img th:src="${song.getAlbum().imageUrl}"></td>
+        <td><span th:text="${song.title}"> Title </span></td>
+        <td><span th:text="${song.getAlbum().title}"> Album </span></td>
+        <td><span th:text="${song.length}"> Length </span></td>
+        <td><span th:text="${song.trackNumber}"> Track Number </span></td>
+    </tr>
+
+    </tbody>
+</table>
+</body>
+</html>
